@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5c1f2e">
+<title>Jabugo Almacén Gourmet — Contanos cómo te fue</title>
+<style>
+  :root{
+    --gold:#b8862c;
+    --gold-dark:#8f6620;
+    --wine:#5c1f2e;
+    --cream:#faf6ee;
+    --text:#2c231b;
+    --muted:#786a58;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    display:flex;
+    justify-content:center;
+    padding:24px 14px 60px;
+  }
+  .card{
+    width:100%;
+    max-width:440px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 30px rgba(92,31,46,0.12);
+    padding:28px 22px 24px;
+  }
+  .brand{
+    text-align:center;
+    margin-bottom:4px;
+  }
+  .brand h1{
+    font-size:20px;
+    margin:0 0 2px;
+    color:var(--wine);
+    letter-spacing:0.5px;
+  }
+  .brand p{
+    margin:0;
+    color:var(--muted);
+    font-size:13px;
+  }
+  .question, legend.question, label.question{
+    display:block;
+    font-size:16px;
+    font-weight:600;
+    margin:26px 0 10px;
+    color:var(--text);
+    padding:0;
+  }
+  .stars-field{
+    border:0;
+    margin:0;
+    padding:0;
+  }
+  .stars{
+    display:flex;
+    gap:6px;
+    margin:14px 0 6px;
+  }
+  .star{
+    font-size:38px;
+    line-height:1;
+    cursor:pointer;
+    color:#e0d8c9;
+    user-select:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    border-radius:10px;
+    border:none;
+    background:transparent;
+    padding:0;
+    font-family:inherit;
+    transition:color .15s ease, transform .1s ease;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .star:active{transform:scale(0.9);}
+  .star.active{color:var(--gold);}
+  .star:focus-visible{
+    outline:2px solid var(--wine);
+    outline-offset:2px;
+  }
+  .star-label{
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+    min-height:18px;
+    margin-bottom:4px;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:8px;
+  }
+  .chip{
+    border:1.5px solid #e3d9c6;
+    background:#fff;
+    color:var(--text);
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13.5px;
+    font-family:inherit;
+    cursor:pointer;
+    user-select:none;
+    min-height:44px;
+    display:inline-flex;
+    align-items:center;
+    transition:all .15s ease;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .chip.active{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:#fff;
+  }
+  .chip:focus-visible{
+    outline:2px solid var(--wine);
+    outline-offset:2px;
+  }
+  textarea, input[type="text"], input[type="tel"]{
+    width:100%;
+    border:1.5px solid #e3d9c6;
+    border-radius:10px;
+    padding:11px 12px;
+    font-size:16px;
+    font-family:inherit;
+    margin-top:6px;
+    resize:vertical;
+    color:var(--text);
+    background:#fffefb;
+  }
+  textarea:focus, input:focus{
+    outline:2px solid var(--gold);
+    outline-offset:1px;
+    border-color:var(--gold);
+  }
+  .hint{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+  .char-count{
+    text-align:right;
+  }
+  .submit{
+    width:100%;
+    margin-top:28px;
+    background:var(--wine);
+    color:#fff;
+    border:none;
+    padding:15px;
+    border-radius:12px;
+    font-size:15.5px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    text-decoration:none;
+    box-sizing:border-box;
+    transition:background .15s ease;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .submit:hover{background:#4a1824;}
+  .submit:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:2px;
+  }
+  button.submit:disabled{background:#cbbfae;cursor:not-allowed;}
+  .footer-note{
+    text-align:center;
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:14px;
+  }
+  .error{
+    color:#a33;
+    font-size:12.5px;
+    text-align:center;
+    margin-top:10px;
+    display:none;
+  }
+  .thanks{
+    display:none;
+    text-align:center;
+    padding:30px 6px 10px;
+  }
+  .thanks:focus{outline:none;}
+  .thanks .big-star{font-size:44px;color:var(--gold);}
+  .thanks h2{color:var(--wine); margin:8px 0 6px;}
+  .thanks p{color:var(--muted); font-size:14px;}
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+
+  <div class="brand">
+    <h1>Jabugo Almacén Gourmet</h1>
+    <p>Gracias por tu visita. ¿Nos contás cómo te fue?</p>
+  </div>
+
+  <fieldset class="stars-field">
+    <legend class="question">¿Cómo calificás tu experiencia? <span class="hint" style="font-weight:400;">(obligatorio)</span></legend>
+    <div class="stars" id="stars" role="radiogroup" aria-label="Calificación de tu experiencia">
+      <button type="button" class="star" role="radio" aria-checked="false" aria-label="1 estrella: Malo" data-value="1" tabindex="0">★</button>
+      <button type="button" class="star" role="radio" aria-checked="false" aria-label="2 estrellas: Regular" data-value="2" tabindex="-1">★</button>
+      <button type="button" class="star" role="radio" aria-checked="false" aria-label="3 estrellas: Bueno" data-value="3" tabindex="-1">★</button>
+      <button type="button" class="star" role="radio" aria-checked="false" aria-label="4 estrellas: Muy bueno" data-value="4" tabindex="-1">★</button>
+      <button type="button" class="star" role="radio" aria-checked="false" aria-label="5 estrellas: Excelente" data-value="5" tabindex="-1">★</button>
+    </div>
+  </fieldset>
+  <div class="star-label" id="starLabel">Tocá una estrella</div>
+
+  <div class="question" id="chipsLabel">¿Qué te llevaste hoy? <span class="hint" style="font-weight:400;">(opcional, podés elegir varias)</span></div>
+  <div class="chips" id="productChips" role="group" aria-labelledby="chipsLabel">
+    <button type="button" class="chip" aria-pressed="false" data-value="Vinos y bebidas">Vinos y bebidas</button>
+    <button type="button" class="chip" aria-pressed="false" data-value="Quesos y fiambres">Quesos y fiambres</button>
+    <button type="button" class="chip" aria-pressed="false" data-value="Embutidos">Embutidos</button>
+    <button type="button" class="chip" aria-pressed="false" data-value="Cocina / gourmet">Cocina / gourmet</button>
+    <button type="button" class="chip" aria-pressed="false" data-value="Otro">Otro</button>
+  </div>
+
+  <label class="question" for="improve">¿Qué podemos mejorar? <span class="hint" style="font-weight:400;">(opcional)</span></label>
+  <textarea id="improve" rows="2" maxlength="300" placeholder="Ej: más variedad de quesos artesanales, vinos de tal bodega, etc."></textarea>
+  <div class="hint char-count" id="improveCount">0/300</div>
+
+  <label class="question" for="name">Tu nombre <span class="hint" style="font-weight:400;">(opcional)</span></label>
+  <input type="text" id="name" maxlength="60" autocomplete="name" placeholder="¿Cómo te llamás?">
+
+  <label class="question" for="phone">Tu WhatsApp o teléfono <span class="hint" style="font-weight:400;">(obligatorio)</span></label>
+  <input type="tel" id="phone" maxlength="20" inputmode="tel" autocomplete="tel" required aria-required="true" placeholder="Ej: 351 555 1234">
+
+  <button type="button" class="submit" id="submitBtn">Enviar valoración</button>
+  <div class="error" id="errorMsg" role="alert">Elegí al menos una estrella antes de enviar 🙂</div>
+  <div class="error" id="sendErrorMsg" role="alert">No pudimos guardar tu opinión. Probá de nuevo tocando "Enviar valoración".</div>
+
+  <p class="footer-note">Tu opinión queda guardada de forma privada para uso interno de Jabugo. No se publica ni se comparte con nadie, y no genera ningún mensaje en WhatsApp.</p>
+</div>
+
+<div class="card thanks" id="thanksCard" tabindex="-1">
+  <div class="big-star">★</div>
+  <h2>¡Gracias!</h2>
+  <p>Recibimos tu opinión. Nos ayuda un montón a seguir mejorando.</p>
+</div>
+
+<script>
+  // =========================================================
+  // CONFIGURACIÓN
+  // =========================================================
+  // URL del Google Apps Script conectado a la planilla de Jabugo.
+  // Es el único destino de los datos — ver README.md para desplegarlo.
+  const GOOGLE_SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyQ5PJ5_LPRFrbuLElVKH2R_whbQpxKBvCQmu9xO9FPCTZyVdcqvEMd9BzbWdN45Hhv/exec";
+
+  const labels = { 1:"Malo", 2:"Regular", 3:"Bueno", 4:"Muy bueno", 5:"Excelente" };
+
+  const starButtons = Array.from(document.querySelectorAll('.star[role="radio"]'));
+  const starLabel = document.getElementById('starLabel');
+  const errorMsg = document.getElementById('errorMsg');
+  let rating = 0;
+
+  function paintStars(previewValue){
+    const value = previewValue != null ? previewValue : rating;
+    starButtons.forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.value, 10) <= value);
+    });
+  }
+
+  function setRating(value){
+    rating = value;
+    starButtons.forEach(btn => {
+      const v = parseInt(btn.dataset.value, 10);
+      btn.setAttribute('aria-checked', v === rating ? 'true' : 'false');
+      btn.tabIndex = v === rating ? 0 : -1;
+    });
+    paintStars();
+    starLabel.textContent = labels[rating] + " (" + rating + "/5)";
+    errorMsg.style.display = 'none';
+  }
+
+  starButtons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => setRating(parseInt(btn.dataset.value, 10)));
+    btn.addEventListener('mouseenter', () => paintStars(parseInt(btn.dataset.value, 10)));
+    btn.addEventListener('mouseleave', () => paintStars());
+    btn.addEventListener('keydown', (e) => {
+      let newIdx = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') newIdx = Math.min(idx + 1, starButtons.length - 1);
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') newIdx = Math.max(idx - 1, 0);
+      if (newIdx != null){
+        e.preventDefault();
+        const newBtn = starButtons[newIdx];
+        setRating(parseInt(newBtn.dataset.value, 10));
+        newBtn.focus();
+      }
+    });
+  });
+
+  const chips = document.querySelectorAll('#productChips .chip');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const pressed = chip.getAttribute('aria-pressed') === 'true';
+      chip.setAttribute('aria-pressed', String(!pressed));
+      chip.classList.toggle('active', !pressed);
+    });
+  });
+
+  function wireCounter(fieldId, counterId, max){
+    const field = document.getElementById(fieldId);
+    const counter = document.getElementById(counterId);
+    field.addEventListener('input', () => {
+      counter.textContent = field.value.length + '/' + max;
+    });
+  }
+  wireCounter('improve', 'improveCount', 300);
+
+  function buildPayload(){
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const improve = document.getElementById('improve').value.trim();
+    const products = Array.from(document.querySelectorAll('#productChips .chip.active'))
+      .map(c => c.dataset.value);
+    return {
+      rating: rating,
+      ratingLabel: labels[rating] || '',
+      products: products,
+      improve: improve,
+      name: name,
+      phone: phone,
+      timestampCliente: new Date().toLocaleString('es-AR'),
+      timestampISO: new Date().toISOString()
+    };
+  }
+
+  // --- Envío a Google Sheets (único destino — no se toca WhatsApp para nada) ---
+  const PENDING_KEY = 'jabugo_posventa_pendientes';
+
+  function queuePending(payload){
+    try {
+      const list = JSON.parse(localStorage.getItem(PENDING_KEY) || '[]');
+      list.push(payload);
+      localStorage.setItem(PENDING_KEY, JSON.stringify(list.slice(-30)));
+    } catch (e) {
+      // localStorage no disponible (modo privado, etc.) — se sigue igual.
+    }
+  }
+
+  function removePending(payload){
+    try {
+      const list = JSON.parse(localStorage.getItem(PENDING_KEY) || '[]');
+      const filtered = list.filter(item => item.timestampISO !== payload.timestampISO);
+      localStorage.setItem(PENDING_KEY, JSON.stringify(filtered));
+    } catch (e) {}
+  }
+
+  async function sendToSheet(payload){
+    if (!GOOGLE_SHEETS_WEBAPP_URL) {
+      console.error('GOOGLE_SHEETS_WEBAPP_URL no está configurado — ver README.md.');
+      return false;
+    }
+    const res = await fetch(GOOGLE_SHEETS_WEBAPP_URL, {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    return !!(data && data.ok);
+  }
+
+  async function flushPending(){
+    if (!GOOGLE_SHEETS_WEBAPP_URL) return;
+    let list = [];
+    try { list = JSON.parse(localStorage.getItem(PENDING_KEY) || '[]'); } catch (e) { return; }
+    for (const item of list) {
+      try {
+        const ok = await sendToSheet(item);
+        if (ok) removePending(item);
+      } catch (e) { /* se reintenta en la próxima carga */ }
+    }
+  }
+
+  // Reintenta en silencio respaldos pendientes de una visita anterior en este dispositivo.
+  flushPending();
+
+  // --- Envío ---
+  const submitBtn = document.getElementById('submitBtn');
+  const card = document.getElementById('card');
+  const thanksCard = document.getElementById('thanksCard');
+  const sendErrorMsg = document.getElementById('sendErrorMsg');
+  let submitted = false;
+  let sending = false;
+
+  const phoneInput = document.getElementById('phone');
+  phoneInput.addEventListener('input', () => { errorMsg.style.display = 'none'; });
+
+  submitBtn.addEventListener('click', async function(){
+    if (submitted || sending) return;
+    const missingRating = rating === 0;
+    const missingPhone = !phoneInput.value.trim();
+    if (missingRating || missingPhone){
+      errorMsg.textContent = missingRating && missingPhone
+        ? 'Elegí al menos una estrella y dejanos tu teléfono antes de enviar 🙂'
+        : missingRating
+          ? 'Elegí al menos una estrella antes de enviar 🙂'
+          : 'Dejanos tu teléfono antes de enviar 🙂';
+      errorMsg.style.display = 'block';
+      return;
+    }
+    errorMsg.style.display = 'none';
+    sendErrorMsg.style.display = 'none';
+    sending = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando…';
+
+    const payload = buildPayload();
+
+    try {
+      const ok = await sendToSheet(payload);
+      if (!ok) throw new Error('respuesta no ok');
+
+      submitted = true;
+      card.style.display = 'none';
+      thanksCard.style.display = 'block';
+      thanksCard.focus();
+    } catch (e) {
+      queuePending(payload);
+      sendErrorMsg.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar valoración';
+    } finally {
+      sending = false;
+    }
+  });
+</script>
+
+</body>
+</html>
