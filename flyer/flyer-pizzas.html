@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Flyer Combo Pizzas — Jabugo</title>
+<style>
+:root{--cream:#faf6ee;--gold:#b8862c;--gold-l:#e3b95a;--wine:#5c1f2e;--wine-d:#3d1320;--text:#2c231b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;font-family:Georgia,"Times New Roman",serif;background:var(--wine-d);color:var(--cream);overflow:hidden;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,#7a2a3f 0%,var(--wine) 45%,var(--wine-d) 100%)}
+.frame{position:absolute;inset:28px;border:3px solid var(--gold-l);border-radius:8px}
+.frame:after{content:"";position:absolute;inset:8px;border:1px solid var(--gold);border-radius:4px}
+.top{position:absolute;top:70px;width:100%;text-align:center}
+.brand{font-size:26px;letter-spacing:8px;color:var(--gold-l);text-transform:uppercase}
+h1{font-size:112px;line-height:.95;margin-top:18px;font-weight:700;letter-spacing:1px}
+h1 em{color:var(--gold-l);font-style:italic}
+.sub{font-family:Helvetica,Arial,sans-serif;font-size:30px;margin-top:20px;color:#f1e3c8}
+.pizzas{position:absolute;top:410px;left:0;width:100%;display:flex;justify-content:center;gap:18px;padding:0 56px}
+.card{flex:1;text-align:center}
+.card svg{width:100%;height:auto;filter:drop-shadow(0 14px 18px rgba(0,0,0,.55))}
+.card h3{font-size:36px;margin-top:10px;color:var(--gold-l)}
+.card p{font-family:Helvetica,Arial,sans-serif;font-size:19px;line-height:1.3;margin-top:6px;color:#f1e3c8}
+.price{position:absolute;top:870px;left:70px;right:70px;background:var(--cream);color:var(--text);border-radius:26px;padding:26px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.price .l{font-family:Helvetica,Arial,sans-serif}
+.price .tag{font-size:26px;font-weight:700;color:var(--wine);letter-spacing:2px}
+.price .old{font-size:30px;color:#786a58;text-decoration:line-through;margin-top:6px}
+.price .save{display:inline-block;margin-top:8px;background:var(--wine);color:var(--gold-l);font-weight:700;font-size:24px;padding:6px 16px;border-radius:30px}
+.price .big{font-size:120px;font-weight:700;color:var(--wine);line-height:1}
+.price .big small{font-size:56px;vertical-align:top;margin-right:4px}
+.badge{position:absolute;top:812px;left:44px;transform:rotate(-10deg);width:130px;height:130px;border-radius:50%;background:var(--gold);color:var(--wine-d);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Helvetica,Arial,sans-serif;font-weight:800;box-shadow:0 6px 16px rgba(0,0,0,.5);border:4px dashed var(--cream)}
+.badge b{font-size:44px;line-height:1}.badge span{font-size:20px}
+.cta{position:absolute;top:1100px;width:100%;text-align:center}
+.cta .btn{display:inline-block;background:var(--gold-l);color:var(--wine-d);font-family:Helvetica,Arial,sans-serif;font-weight:800;font-size:38px;padding:20px 54px;border-radius:60px}
+.cta p{font-family:Helvetica,Arial,sans-serif;font-size:24px;margin-top:14px;color:#f1e3c8}
+.cta .foot{font-size:19px;margin-top:16px;color:var(--gold-l);letter-spacing:1px}
+</style></head><body>
+<div class="bg"></div><div class="frame"></div>
+<div class="top">
+  <div class="brand">Jabugo · Almacén Gourmet</div>
+  <h1>Tres pizzas.<br><em>Un solo combo.</em></h1>
+  <div class="sub">Hechas con ganas, listas para compartir 🍕</div>
+</div>
+
+<div class="pizzas">
+  <!-- MARGARITA -->
+  <div class="card">
+    <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#c98a3b"/><circle cx="100" cy="100" r="86" fill="#c8301f"/><circle cx="100" cy="100" r="82" fill="#f6ecd0"/>
+      <g fill="#fffaf0"><circle cx="60" cy="70" r="20"/><circle cx="130" cy="60" r="22"/><circle cx="145" cy="120" r="20"/><circle cx="85" cy="135" r="22"/><circle cx="50" cy="115" r="14"/></g>
+      <g fill="#c8301f" opacity=".75"><circle cx="100" cy="95" r="10"/><circle cx="110" cy="150" r="8"/><circle cx="35" cy="95" r="7"/><circle cx="105" cy="38" r="7"/></g>
+      <g fill="#2f7a2f"><path d="M70 62q10-14 22 0q-10 12-22 0z"/><path d="M122 70q10-14 22 0q-10 12-22 0z"/><path d="M135 125q10-14 22 0q-10 12-22 0z"/><path d="M78 132q10-14 22 0q-10 12-22 0z"/></g></svg>
+    <h3>Margarita</h3><p>Salsa de tomate, mozzarella y albahaca fresca</p>
+  </div>
+  <!-- ESPECIAL -->
+  <div class="card">
+    <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#c98a3b"/><circle cx="100" cy="100" r="86" fill="#c8301f"/><circle cx="100" cy="100" r="82" fill="#f3d98a"/>
+      <g fill="#e98a8a" stroke="#d96b6b" stroke-width="2"><rect x="50" y="55" width="34" height="26" rx="6" transform="rotate(-12 67 68)"/><rect x="115" y="50" width="34" height="26" rx="6" transform="rotate(14 132 63)"/><rect x="130" y="110" width="34" height="26" rx="6" transform="rotate(-8 147 123)"/><rect x="62" y="120" width="34" height="26" rx="6" transform="rotate(10 79 133)"/></g>
+      <g stroke="#c8301f" stroke-width="9" fill="none" stroke-linecap="round"><path d="M95 85q8-10 16 0"/><path d="M40 105q8-10 16 0"/><path d="M110 160q8-10 16 0"/><path d="M95 30q8-8 16 0"/></g>
+      <g fill="#2b2b2b"><circle cx="100" cy="115" r="7"/><circle cx="150" cy="82" r="7"/><circle cx="48" cy="85" r="7"/><circle cx="120" cy="145" r="7"/><circle cx="85" cy="55" r="7"/></g></svg>
+    <h3>Especial</h3><p>Jamón, morrones, aceitunas y mucha mozzarella</p>
+  </div>
+  <!-- FUGACETA -->
+  <div class="card">
+    <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#c98a3b"/><circle cx="100" cy="100" r="86" fill="#d9a441"/><circle cx="100" cy="100" r="82" fill="#f8e7a8"/>
+      <g fill="none" stroke="#fffaf0" stroke-width="7" stroke-linecap="round" opacity=".95"><path d="M40 70q60-30 120 0"/><path d="M32 100q68-30 136 0"/><path d="M40 130q60-30 120 0"/><path d="M60 155q40-18 80 0"/><path d="M62 45q38-14 76 0"/></g>
+      <g fill="#f1c9d8" stroke="#d99ab4" stroke-width="2" opacity=".9"><ellipse cx="70" cy="85" rx="16" ry="5"/><ellipse cx="125" cy="115" rx="16" ry="5"/><ellipse cx="95" cy="140" rx="14" ry="4"/></g>
+      <g fill="#2f7a2f"><circle cx="100" cy="100" r="2"/><circle cx="60" cy="110" r="2"/><circle cx="140" cy="85" r="2"/><circle cx="110" cy="62" r="2"/><circle cx="85" cy="118" r="2"/><circle cx="130" cy="140" r="2"/></g></svg>
+    <h3>Fugaceta</h3><p>Cebolla caramelizada, mozzarella a rolete y orégano</p>
+  </div>
+  <!-- PEPPERONI -->
+  <div class="card">
+    <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#c98a3b"/><circle cx="100" cy="100" r="86" fill="#c8301f"/><circle cx="100" cy="100" r="82" fill="#f6dc8e"/>
+      <g fill="#a3231a" stroke="#7d1810" stroke-width="2"><circle cx="65" cy="65" r="17"/><circle cx="125" cy="55" r="17"/><circle cx="100" cy="102" r="17"/><circle cx="150" cy="105" r="17"/><circle cx="55" cy="125" r="17"/><circle cx="115" cy="150" r="17"/><circle cx="82" cy="38" r="10"/></g>
+      <g fill="#7d1810" opacity=".8"><circle cx="60" cy="62" r="3"/><circle cx="70" cy="70" r="3"/><circle cx="120" cy="52" r="3"/><circle cx="130" cy="60" r="3"/><circle cx="96" cy="98" r="3"/><circle cx="106" cy="107" r="3"/><circle cx="146" cy="102" r="3"/><circle cx="154" cy="110" r="3"/><circle cx="52" cy="122" r="3"/><circle cx="60" cy="130" r="3"/><circle cx="111" cy="147" r="3"/><circle cx="120" cy="155" r="3"/></g></svg>
+    <h3>Pepperoni</h3><p>Rodajas de pepperoni crocante sobre mozzarella derretida</p>
+  </div>
+</div>
+
+<div class="price">
+  <div class="l">
+    <div class="tag">COMBO 3 PIZZAS · ELEGÍ TUS SABORES</div>
+    <div class="old">Por separado $37.500</div>
+    <div class="save">-10% · AHORRÁS $4.000</div>
+  </div>
+  <div class="big"><small>$</small>33.500</div>
+</div>
+
+<div class="cta">
+  <div class="btn">¡Pedí la tuya hoy!</div>
+  <p>Armá tu combo con 3 de nuestros 4 sabores.<br>Pizza individual: $12.500</p>
+  <div class="foot">JABUGO ALMACÉN GOURMET · [WhatsApp · dirección · horarios]</div>
+</div>
+</body></html>
